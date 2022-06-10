@@ -1,0 +1,68 @@
+<xc-panel xc-form #form="xc-form">
+
+    <header>
+        <h1>{{header}}</h1>
+        <xc-icon-button class="items-right" (click)="close()" [xc-icon-name]="XDSIconName.CLOSE" xc-icon-size="small" color="invert" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+    </header>
+
+    <section>
+        <span *ngIf="readonly" i18n>A deployed Static Host can not be changed!</span>
+        <xc-form-input
+            [(value)]="host.hostname" label="Host-Name"
+            xc-form-validator-required
+            [readonly]="readonly"
+            i18n-label>
+        </xc-form-input>
+        <xc-form-input
+            [(value)]="host.ip" label="IP"
+            [xc-form-validator-custom]="ipNeededValidator"
+            [readonly]="readonly"
+            i18n-label>
+        </xc-form-input>
+        <xc-form-input
+            [(value)]="host.remoteId" label="Remote-ID"
+            [readonly]="readonly"
+            i18n-label>
+        </xc-form-input>
+        <xc-form-input
+            [(value)]="host.cpe_mac" label="CPE-MAC"
+            xc-form-validator-required
+            [readonly]="readonly"
+            i18n-label>
+        </xc-form-input>
+        <xc-form-autocomplete
+            label="Pool-Type"
+            placeholder="Please choose"
+            [(xc-form-autocomplete-option)]="pooltypeWrapper.value"
+            [xc-form-autocomplete-options]="pooltypeWrapper.values"
+            xc-form-autocomplete-asdropdown
+            i18n-label
+            i18n-placeholder
+            [readonly]="readonly">
+        </xc-form-autocomplete>
+        <xc-form-input
+            [(value)]="host.dns" label="DNS" [readonly]="readonly"  i18n-label>
+        </xc-form-input>
+        <xc-checkbox
+            [(checked)]="dynamicDnsActive" label="DNS-Entry" [readonly]="readonly" i18n-label>
+        </xc-checkbox>
+        <div class="items-row" i18n>
+            Deployed:
+            <xc-icon
+                label="Deployed" [xc-icon-name]="deployedIcon">
+            </xc-icon>
+        </div>
+        <xc-form-textarea
+            [(value)]="host.configDescr" label="Config Description" [readonly]="readonly" i18n-label>
+        </xc-form-textarea>
+    </section>
+
+    <footer>
+        <div class="items-right">
+            <xc-icon-button (click)="undeploy()" [xc-icon-name]="XDSIconName.ARROWDOWN" xc-icon-size="small" color="invert" xc-tooltip="Undeploy" [disabled]="!readonly" i18n-xc-tooltip></xc-icon-button>
+            <xc-icon-button (click)="deploy()" [xc-icon-name]="XDSIconName.ARROWUP" xc-icon-size="small" color="invert" xc-tooltip="Deploy" [disabled]="readonly" i18n-xc-tooltip></xc-icon-button>
+            <xc-icon-button (click)="syncCpeIp()" [xc-icon-name]="XDSIconName.TIME" xc-icon-size="small" color="invert" xc-tooltip="Synchronize" i18n-xc-tooltip></xc-icon-button>
+            <xc-button (click)="save()" color="primary" [disabled]="form.invalid" i18n="cluster-details|apply">Apply</xc-button>
+        </div>
+    </footer>
+</xc-panel>

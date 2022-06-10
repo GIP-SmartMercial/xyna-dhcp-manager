@@ -1,0 +1,28 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "baseUrl": "./",
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "downlevelIteration": true,
+        "target": "es5",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+		"lib": [
+            "es2017",
+            "dom"
+        ],
+        "paths": {
+            "@zeta/*": ["project/xyna/src/app/zeta/*"],
+            "@dhcp/*": ["project/xyna/src/app/dhcp/*"]
+        }
+    },
+    "angularCompilerOptions": {
+        "preserveWhitespaces": false
+    }
+}

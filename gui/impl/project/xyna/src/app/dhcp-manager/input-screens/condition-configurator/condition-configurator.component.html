@@ -1,0 +1,66 @@
+<xc-master-detail [xc-master-detail-opened]="!!currentObject" xc-master-detail-side-area-size="golden">
+    <xc-panel master>
+        <header>
+            <h1 i18n>Condition Configurator</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="refresh()" xc-icon-name="reload" xc-icon-size="small" color="invert" xc-tooltip="Refresh" i18n-xc-tooltip></xc-icon-button>
+                <xc-icon-button (click)="addCondition()" xc-icon-name="add" xc-icon-size="small" color="invert" xc-tooltip="Add" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section class="stretch scroll">
+            <xc-table
+                [xc-table-datasource]="tableDataSource"
+                xc-table-allowsort
+                xc-table-allowfilter
+                xc-table-allowselect
+                xc-table-lazyupdate
+                (focused-enter)="refresh()"
+        ></xc-table>
+        </section>
+        <footer>
+            {{tableRowCountString}}
+            <div class="items-right">
+                <xc-icon-button (click)="deleteCondition()" [busy]="deleteBusy" [disabled]="busy || !currentObject" xc-icon-name="delete" xc-icon-size="small" color="invert" xc-tooltip="Delete" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </footer>
+    </xc-panel>
+
+    <xc-panel detail xc-form #xcForm="xc-form" *ngIf="currentObject">
+        <header>
+            <h2 i18n>Details</h2>
+            <div class="items-right">
+                <xc-icon-button (click)="close()" xc-icon-name="close" xc-icon-size="small" color="invert" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section class="stretch scroll">
+            <xc-form-input xc-form-field-compact [(value)]="currentObjectClone.name" label="Name" i18n-label xc-form-validator-required></xc-form-input>
+            <xc-form-autocomplete
+                label="Parameter" placeholder="Please choose"
+                [(xc-form-autocomplete-option)]="parameterDataWrapper.value"
+                [xc-form-autocomplete-options]="parameterDataWrapper.values"
+                xc-form-autocomplete-asdropdown
+                i18n-label
+                i18n-placeholder
+                xc-form-validator-required>
+            </xc-form-autocomplete>
+            <xc-form-autocomplete
+                label="Operator" placeholder="Please choose"
+                [(xc-form-autocomplete-option)]="operatorDataWrapper.value"
+                [xc-form-autocomplete-options]="operatorDataWrapper.values"
+                xc-form-autocomplete-asdropdown
+                i18n-label
+                i18n-placeholder
+                xc-form-validator-required>
+            </xc-form-autocomplete>
+            <xc-form-input xc-form-field-compact [(value)]="currentObjectClone.value" label="Value" i18n-label></xc-form-input>
+        </section>
+        <footer>
+            <div class="items-left">
+                <xc-button (click)="close()" [disabled]="busy" i18n>Cancel</xc-button>
+            </div>
+            <div class="items-right">
+                <xc-button (click)="apply()" color="primary" [busy]="applyBusy" [disabled]="busy || xcForm.invalid" i18n="cluster-details|apply">Apply</xc-button>
+            </div>
+        </footer>
+    </xc-panel>
+</xc-master-detail>

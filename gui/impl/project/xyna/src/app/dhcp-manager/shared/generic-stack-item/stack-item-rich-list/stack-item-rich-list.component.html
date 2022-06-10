@@ -1,0 +1,17 @@
+<div class="items-row row">
+    <div *ngFor="let value of injectedData.values">
+        <label>{{value}}</label>
+    </div>
+    <xc-icon-button *ngIf="injectedData.withInfo()" class="icon" (click)="infoItem()" xc-icon-name="info" [xc-tooltip]="injectedData.infoTooltip"></xc-icon-button>
+    <button *ngIf="injectedData.selectable" class="details-button" i18n>Show Details</button>
+    <xc-icon-button *ngIf="injectedData.deleteable" class="delete-button icon" (click)="deleteItem()" xc-icon-name="delete" [xc-tooltip]="injectedData.deleteTooltip"></xc-icon-button>
+</div>
+
+<!--div class="items-row">
+    <div class="items-row grid-12 gridRow">
+        <xc-form-text *ngFor="let value of injectedData.values; index as ind" class="col-{{gridLabels[ind]}}" [value]="value"></xc-form-text>
+    </div>
+    <xc-icon-button *ngIf="injectedData.withInfo" (click)="infoItem()" xc-icon-name="info" [xc-tooltip]="injectedData.infoTooltip"></xc-icon-button>
+    <xc-icon-button *ngIf="injectedData.deleteable" (click)="deleteItem()" xc-icon-name="delete" [xc-tooltip]="injectedData.deleteTooltip"></xc-icon-button>
+    <button *ngIf="injectedData.selectable" class="details-button" (click)="selectItem()" i18n>Show Details</button>
+</div-->

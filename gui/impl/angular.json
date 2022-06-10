@@ -1,0 +1,153 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "project",
+    "projects": {
+        "xyna": {
+            "root": "project/xyna",
+            "projectType": "application",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/xyna",
+                        "index": "project/xyna/src/index.html",
+                        "main": "project/xyna/src/main.ts",
+                        "polyfills": "project/xyna/src/polyfills.ts",
+                        "tsConfig": "project/xyna/tsconfig.app.json",
+                        "assets": [
+                            {
+                                "glob": "favicon.ico",
+                                "input": "project/xyna/src",
+                                "output": "./"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "project/xyna/src/WEB-INF",
+                                "output": "WEB-INF"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "project/xyna/src/assets",
+                                "output": "assets"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "project/xyna/src/app/zeta/assets",
+                                "output": "assets/zeta"
+                            }
+                        ],
+                        "styles": [
+                            "project/xyna/src/styles.scss"
+                        ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": ["project/xyna/src/app"]
+                        },
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "src": "project/xyna/src/environments/environment.ts",
+                                    "replaceWith": "project/xyna/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true
+                        },
+                        "de-DE": {
+                            "aot": true,
+                            "outputPath": "dist/xyna-de-DE/",
+                            "i18nFile": "project/xyna/locale/messages.de-DE.xlf",
+                            "i18nFormat": "xlf",
+                            "i18nLocale": "de-DE",
+                            "i18nMissingTranslation": "error"
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "xyna:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "xyna:build:production"
+                        },
+                        "de-DE": {
+                            "browserTarget": "xyna:build:de-DE"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "xyna:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "project/xyna/src/test.ts",
+                        "polyfills": "project/xyna/src/polyfills.ts",
+                        "tsConfig": "project/xyna/tsconfig.spec.json",
+                        "karmaConfig": "project/xyna/karma.conf.js",
+                        "styles": [
+                            {
+                                "input": "project/xyna/styles.scss"
+                            }
+                        ],
+                        "scripts": [],
+                        "assets": [
+                            {
+                                "glob": "favicon.ico",
+                                "input": "project/xyna/src/",
+                                "output": "./"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "project/xyna/src/assets",
+                                "output": "assets"
+                            }
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "project/xyna/tsconfig.app.json",
+                            "project/xyna/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "xliffmerge": {
+                    "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+                    "options": {
+                        "xliffmergeOptions": {
+                            "i18nFormat": "xlf",
+                            "srcDir": "./project/xyna/locale",
+                            "genDir": "./project/xyna/locale",
+                            "defaultLanguage": "en-US",
+                            "languages": [
+                                "en-US",
+                                "de-DE"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

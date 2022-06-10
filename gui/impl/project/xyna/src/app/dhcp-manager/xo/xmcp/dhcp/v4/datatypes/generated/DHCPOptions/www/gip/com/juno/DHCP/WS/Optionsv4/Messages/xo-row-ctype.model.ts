@@ -1,0 +1,102 @@
+/*
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ * Copyright 2022 GIP SmartMercial GmbH, Germany
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ */
+import { XoObjectClass, XoArrayClass, XoProperty, XoArray } from '@zeta/api';
+import { XoXSDBaseModel } from '../../../../../../../../../../../../../../xdnc/model/xsd/xo-xsdbase-model.model';
+
+
+@XoObjectClass(XoXSDBaseModel, 'xmcp.dhcp.v4.datatypes.generated.DHCPOptions.www.gip.com.juno.DHCP.WS.Optionsv4.Messages', 'Row_ctype')
+export class XoRowctype extends XoXSDBaseModel {
+
+
+    @XoProperty()
+    id: string;
+
+
+    @XoProperty()
+    parentId: string;
+
+
+    @XoProperty()
+    typeName: string;
+
+
+    @XoProperty()
+    typeEncoding: string;
+
+
+    @XoProperty()
+    enterpriseNr: string;
+
+
+    @XoProperty()
+    valueDataTypeName: string;
+
+
+    @XoProperty()
+    valueDataTypeArgumentsString: string;
+
+
+    @XoProperty()
+    readOnly: string;
+
+
+    @XoProperty()
+    status: string;
+
+
+    @XoProperty()
+    guiName: string;
+
+
+    @XoProperty()
+    guiAttribute: string;
+
+
+    @XoProperty()
+    guiFixedAttribute: string;
+
+
+    @XoProperty()
+    guiParameter: string;
+
+
+    @XoProperty()
+    guiAttributeId: string;
+
+
+    @XoProperty()
+    guiFixedAttributeId: string;
+
+
+    @XoProperty()
+    guiParameterId: string;
+
+
+    @XoProperty()
+    guiAttributeWerteBereich: string;
+
+
+    @XoProperty()
+    guiFixedAttributeValue: string;
+
+
+}
+
+@XoArrayClass(XoRowctype)
+export class XoRowctypeArray extends XoArray<XoRowctype> {
+}

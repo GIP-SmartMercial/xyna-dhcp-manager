@@ -1,0 +1,55 @@
+<xc-panel>
+    <header>
+        <div class="items-right">
+            <xc-checkbox
+                [(checked)]="highlight"
+                label="Highlight Threshold Exceedance"
+                i18n-label>
+            </xc-checkbox>
+        </div>
+    </header>
+    <section class="table">
+        <xc-panel>
+            <header>
+                <h2 i18n>Pool-Overview</h2>
+                <div class="items-right">
+                    <xc-icon-button
+                        (click)="refreshOverview()"
+                        [disabled]="overviewTableDataSource.refreshing"
+                        [xc-icon-name]="XDSIconName.RELOAD" xc-icon-size="small" color="invert"
+                        xc-tooltip="Refresh"
+                        i18n-xc-tooltip>
+                    </xc-icon-button>
+                </div>
+            </header>
+            <xc-table
+                [xc-table-datasource]="overviewTableDataSource"
+                xc-table-allowsort
+                xc-table-allowselect
+                xc-table-lazyupdate>
+            </xc-table>
+        </xc-panel>
+    </section>
+    <section class="table">
+        <xc-panel>
+            <header>
+                <h2 i18n>Pool-Details</h2>
+                <div class="items-right">
+                    <xc-icon-button
+                        (click)="refreshDetails()"
+                        [disabled]="detailsTableDataSource.refreshing"
+                        [xc-icon-name]="XDSIconName.RELOAD" xc-icon-size="small" color="invert"
+                        xc-tooltip="Refresh"
+                        i18n-xc-tooltip>
+                    </xc-icon-button>
+                </div>
+            </header>
+            <xc-table
+                [xc-table-datasource]="detailsTableDataSource"
+                xc-table-allowsort
+                xc-table-allowselect
+                xc-table-lazyupdate>
+            </xc-table>
+        </xc-panel>
+    </section>
+</xc-panel>

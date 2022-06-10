@@ -1,0 +1,121 @@
+<xc-panel xc-form #form="xc-form">
+
+    <header>
+        <h1>{{header}}</h1>
+        <div class="items-right">
+            <xc-button (click)="export()" i18n="cluster-details|export">Export</xc-button>
+            <xc-icon-button (click)="close()" [xc-icon-name]="XDSIconName.CLOSE" xc-icon-size="small" color="invert" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+        </div>
+    </header>
+
+    <section class='items-row'>
+        <div>
+            <span i18n>Target 1:</span>
+            <div class="items-row">
+                <xc-form-input
+                    [(value)]="targetOne.name"
+                    label="Name"
+                    xc-form-validator-required
+                    i18n-label>
+                </xc-form-input>
+                <xc-icon-button (click)="editTarget(1)" [xc-icon-name]="XDSIconName.EDIT" xc-tooltip="Edit Target" i18n-xc-tooltip></xc-icon-button>
+            </div>
+            <xc-form-input
+                [(value)]="targetOne.clustergroup" label="Cluster-Group" xc-form-validator-required i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [(value)]="targetOne.nodetype" label="Node-Type" xc-form-validator-required i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [value]="connectedDataOne.ip" label="IP" readonly i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [value]="connectedDataOne.osUser" label="User" readonly i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [value]="connectedDataOne.passwort" label="Password" readonly i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [value]="connectedDataOne.rsaKey" label="RSA-Key" readonly i18n-label>
+            </xc-form-input>
+        </div>
+        <div>
+            <span i18n>Target 2:</span>
+            <div class="items-row">
+                <xc-form-input
+                    [(value)]="targetTwo.name"
+                    label="Name"
+                    xc-form-validator-required
+                    i18n-label>
+                </xc-form-input>
+                <xc-icon-button (click)="editTarget(2)" [xc-icon-name]="XDSIconName.EDIT" xc-tooltip="Edit Target" i18n-xc-tooltip></xc-icon-button>
+            </div>
+            <xc-form-input
+                [(value)]="targetTwo.clustergroup" label="Cluster-Group" xc-form-validator-required i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [(value)]="targetTwo.nodetype" label="Node-Type" xc-form-validator-required i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [value]="connectedDataTwo.ip" label="IP" readonly i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [value]="connectedDataTwo.osUser" label="User" readonly i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [value]="connectedDataTwo.passwort" label="Password" readonly i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [value]="connectedDataTwo.rsaKey" label="RSA-Key" readonly i18n-label>
+            </xc-form-input>
+        </div>
+    </section>
+
+    <footer>
+        <div class="items-right">
+            <xc-button (click)="deploy()" i18n="cluster-details|deploy">Deploy</xc-button>
+            <xc-button (click)="check()" i18n="cluster-details|check">Check</xc-button>
+            <xc-button (click)="save()" color="primary" i18n="cluster-details|apply">Apply</xc-button>
+        </div>
+    </footer>
+
+    <xc-panel>
+        <header>
+            <h1 class="items-left" i18n>DHCP-Relay</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="addNetwork()" [xc-icon-name]="XDSIconName.ADD" xc-icon-size="small" color="invert" xc-tooltip="Add" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section>
+            <div class="items-row">
+                <xc-form-input
+                    [(value)]="filterName" label="Name" i18n-label>
+                </xc-form-input>
+                <xc-form-input
+                    [(value)]="filterSite" label="Site" i18n-label>
+                </xc-form-input>
+                <xc-form-autocomplete
+                    placeholder=""
+                    [(xc-form-autocomplete-option)]="migrationStatusFilterWrapper.value"
+                    [xc-form-autocomplete-options]="migrationStatusFilterWrapper.values"
+                    xc-form-autocomplete-asdropdown
+                    i18n-label
+                    i18n-placeholder>
+                </xc-form-autocomplete>
+                <xc-icon-button
+                    (click)="listRefresh()"
+                    [disabled]="refreshing"
+                    [xc-icon-name]="XDSIconName.RELOAD"
+                    xc-tooltip="Refresh"
+                    i18n-xc-tooltip>
+                </xc-icon-button>
+            </div>
+            <xc-rich-list [xc-rich-list-items]="richList[0]"></xc-rich-list>
+        </section>
+
+        <footer>
+            <migration-handler [selected-items]="lastSelectedID" migration-type="multiSharedNetwork"></migration-handler>
+        </footer>
+
+    </xc-panel>
+</xc-panel>

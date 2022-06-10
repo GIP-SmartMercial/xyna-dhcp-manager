@@ -1,0 +1,8 @@
+{
+	"host": "vmlin046",
+	"username": "xyna",
+	"password": "",
+	"warPath": "/opt/xyna_001/tomcat/webapps/",
+	"develTargetPath": "/opt/xyna_001/tomcat/webapps/dev",
+	"useLegacyDeployment": false
+}

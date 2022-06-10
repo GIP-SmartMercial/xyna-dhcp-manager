@@ -1,0 +1,17 @@
+<xc-dialog-wrapper>
+    <ng-container header>
+        {{header}}
+        <xc-icon-button (click)="refresh()" xc-icon-name="reload" xc-tooltip="Refresh" i18n-xc-tooltip></xc-icon-button>
+    </ng-container>
+    <section content>
+        <xc-table [xc-table-datasource]="dsCondition"
+            xc-table-allowselect
+            xc-table-lazyupdate>
+        </xc-table>
+    </section>
+    <ng-container footer>
+        <xc-button (click)="addCondition()" i18n>Add Condition</xc-button>
+        <xc-button (click)="apply(false)" i18n>Cancel</xc-button>
+        <xc-button (click)="apply()" color="primary" i18n="cluster-details|apply">Apply</xc-button>
+    </ng-container>
+</xc-dialog-wrapper>

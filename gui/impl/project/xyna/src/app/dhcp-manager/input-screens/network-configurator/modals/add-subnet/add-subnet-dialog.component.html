@@ -1,0 +1,28 @@
+<xc-dialog-wrapper xc-form #form="xc-form">
+    <ng-container header>Add Subnet</ng-container>
+    <section content>
+        <xc-form-input
+            [(value)]="subnet.subnet" label="Subnet"
+            xc-form-validator-required
+            xc-form-validator-ipv4
+            [xc-form-validator-custom]="subnetValidator"
+            i18n-label>
+        </xc-form-input>
+        <xc-form-input
+            [(value)]="netmask" label="Subnet mask"
+            xc-form-validator-required
+            [xc-form-validator-custom]="netmaskValidator"
+            i18n-label>
+        </xc-form-input>
+        <xc-form-input
+            [(value)]="cidr" label="CIDR"
+            xc-form-validator-required
+            [xc-form-validator-custom]="CIDRValidator"
+            i18n-label>
+        </xc-form-input>
+    </section>
+    <ng-container footer>
+        <xc-button (click)="dismiss(false)" i18n>Cancel</xc-button>
+        <xc-button (click)="apply()" color="primary" [busy]="busy" i18n="cluster-details|apply">Apply</xc-button>
+    </ng-container>
+</xc-dialog-wrapper>

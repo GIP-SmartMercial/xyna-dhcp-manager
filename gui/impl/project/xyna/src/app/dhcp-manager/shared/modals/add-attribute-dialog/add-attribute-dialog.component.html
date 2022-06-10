@@ -1,0 +1,43 @@
+<xc-dialog-wrapper xc-form #xcForm="xc-form">
+    <ng-container header>{{header}}</ng-container>
+    <section content>
+        <xc-form-autocomplete
+            label="Attribute"
+            placeholder="Please choose"
+            [(xc-form-autocomplete-option)]="attributeWrapper.value"
+            [xc-form-autocomplete-options]="attributeWrapper.values"
+            xc-form-autocomplete-asdropdown
+            [readonly]="editMode"
+            i18n-label
+            i18n-placeholder>
+        </xc-form-autocomplete>
+
+        <!--global Attribute-->
+        <xc-form-autocomplete *ngIf="attribute.isGlobal"
+            label="Global Value"
+            placeholder="Please choose"
+            [(xc-form-autocomplete-option)]="globalValueWrapper.value"
+            [xc-form-autocomplete-options]="globalValueWrapper.values"
+            xc-form-autocomplete-asdropdown
+            i18n-label
+            i18n-placeholder>
+        </xc-form-autocomplete>
+        <span *ngIf="attribute.isGlobal">{{comment}}</span>
+
+        <!--gui Attribute-->
+        <xc-form-input *ngIf="!attribute.isGlobal"
+            [(value)]="attribute.value"
+            label="Value"
+            [xc-form-validator-pattern]="localValueValidtorPattern"
+            i18n-label>
+        </xc-form-input>
+
+        <xc-checkbox *ngIf="injectedData.withForce"
+            [(checked)]="attribute.force" label="Force Attribute" i18n-label>
+        </xc-checkbox>
+    </section>
+    <ng-container footer>
+        <xc-button (click)="dismiss(null)" i18n>Cancel</xc-button>
+        <xc-button (click)="dismiss(attribute)" color="primary" [disabled]="!attribute.isGlobal && xcForm.invalid" i18n="cluster-details|apply">Apply</xc-button>
+    </ng-container>
+</xc-dialog-wrapper>

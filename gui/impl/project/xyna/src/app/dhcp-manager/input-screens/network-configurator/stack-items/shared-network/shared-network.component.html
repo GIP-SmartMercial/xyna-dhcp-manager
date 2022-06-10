@@ -1,0 +1,54 @@
+<xc-panel xc-form #form="xc-form">
+
+    <header>
+        <h1>{{header}}</h1>
+        <xc-icon-button class="items-right" (click)="close()" [xc-icon-name]="XDSIconName.CLOSE" xc-icon-size="small" color="invert" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+    </header>
+
+    <section *ngIf="network">
+        <xc-form-input
+            [(value)]="network.sharedNetwork" label="Name" xc-form-validator-required [xc-form-validator-pattern]="noSpaceRegEx" i18n-label>
+        </xc-form-input>
+        <xc-form-autocomplete
+            label="CPE-DNS"
+            placeholder="Please choose"
+            [(xc-form-autocomplete-option)]="cpednsDataWrapper.value"
+            [xc-form-autocomplete-options]="cpednsDataWrapper.values"
+            xc-form-autocomplete-asdropdown
+            i18n-label
+            i18n-placeholder>
+        </xc-form-autocomplete>
+        <xc-form-autocomplete
+            label="Site"
+            placeholder="Please choose"
+            [(xc-form-autocomplete-option)]="siteWrapper.value"
+            [xc-form-autocomplete-options]="siteWrapper.values"
+            xc-form-autocomplete-asdropdown
+            i18n-label
+            i18n-placeholder>
+        </xc-form-autocomplete>
+        <xc-form-textarea
+            [(value)]="network.linkAddresses" label="Link-Address" i18n-label>
+        </xc-form-textarea>
+    </section>
+
+    <footer>
+        <migration-handler class="items-left" [selected-items]="migrationID" migration-type="sharedNetwork"></migration-handler>
+        <div class="items-right">
+            <xc-button (click)="save()" color="primary" [disabled]="form.invalid" i18n="cluster-details|apply">Apply</xc-button>
+        </div>
+    </footer>
+
+    <xc-panel>
+        <header>
+            <h1 i18n>Subnet</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="addSubnet()" [xc-icon-name]="XDSIconName.ADD" xc-icon-size="small" color="invert" xc-tooltip="Add" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section>
+            <xc-rich-list [xc-rich-list-items]="richList[0]"></xc-rich-list>
+        </section>
+    </xc-panel>
+
+</xc-panel>

@@ -1,0 +1,61 @@
+<xc-panel xc-form #form="xc-form">
+
+    <header>
+        <h1>{{header}}</h1>
+        <xc-icon-button class="items-right" (click)="close()" [xc-icon-name]="XDSIconName.CLOSE" xc-icon-size="small" color="invert" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+    </header>
+
+    <section *ngIf="subnet">
+        <xc-form-input
+            [(value)]="subnet.subnet" label="Subnet"
+            xc-form-validator-required
+            xc-form-validator-ipv4
+            [xc-form-validator-custom]="subnetValidator"
+            i18n-label>
+        </xc-form-input>
+        <xc-form-input
+            [(value)]="netmask" label="Subnet mask"
+            xc-form-validator-required
+            [xc-form-validator-custom]="netmaskValidator"
+            i18n-label>
+        </xc-form-input>
+        <xc-form-input
+            [(value)]="cidr" label="CIDR"
+            xc-form-validator-required
+            [xc-form-validator-custom]="CIDRValidator"
+            i18n-label>
+        </xc-form-input>
+    </section>
+
+    <footer>
+        <migration-handler class="items-left" [selected-items]="migrationID" migration-type="subnet"></migration-handler>
+        <div class="items-right">
+            <xc-button (click)="save()" color="primary" [disabled]="form.invalid" i18n="cluster-details|apply">Apply</xc-button>
+        </div>
+    </footer>
+
+    <xc-panel>
+        <header>
+            <h1 i18n>Attribute</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="addAttribute()" [xc-icon-name]="XDSIconName.ADD" xc-icon-size="small" color="invert" xc-tooltip="Add" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section>
+            <xc-rich-list [xc-rich-list-items]="richList[0]"></xc-rich-list>
+        </section>
+    </xc-panel>
+
+    <xc-panel>
+        <header>
+            <h1 i18n>Pool</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="addPool()" [xc-icon-name]="XDSIconName.ADD" xc-icon-size="small" color="invert" xc-tooltip="Add" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section>
+            <xc-rich-list [xc-rich-list-items]="richList[1]"></xc-rich-list>
+        </section>
+    </xc-panel>
+
+</xc-panel>

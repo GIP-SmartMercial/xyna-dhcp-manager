@@ -1,0 +1,37 @@
+{
+  "name": "NewModelerDevelTasks",
+  "title": "New Modeler Devel Tasks",
+  "description": "New Modeler Devel Tasks",
+  "version": "0.0.0",
+  "scripts": {
+    "test-modeler": "grunt test-modeler",
+    "release": "grunt release",
+    "release:de-suffix": "grunt release --lang=de-DE",
+    "release:de": "grunt release --lang=de-DE --suppressLangSuffix",
+    "release-unobfuscated:de": "grunt release --unobfuscated=unobfuscated --lang=de-DE --suppressLangSuffix",
+    "release:en-suffix": "grunt release --lang=en-US",
+    "release:en": "grunt release --lang=en-US --suppressLangSuffix",
+    "release-unobfuscated:en": "grunt release --unobfuscated=unobfuscated --lang=en-US --suppressLangSuffix",
+    "release-unobfuscated:en-suffix": "grunt release --unobfuscated=unobfuscated --lang=en-US",
+    "release:native-suffix": "grunt release",
+    "release:native": "grunt release --suppressLangSuffix",
+    "release-unobfuscated": "grunt release --unobfuscated=unobfuscated --suppressLangSuffix",
+    "release-unobfuscated:native": "grunt release --unobfuscated=unobfuscated --suppressLangSuffix",
+    "release-unobfuscated:native-suffix": "grunt release --unobfuscated=unobfuscated"
+  },
+  "devDependencies": {
+    "chalk": "^4.0.0",
+    "grunt": "^1.1.0",
+    "grunt-cli": "^1.3.2",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-compress": "^1.6.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-replace": "^1.0.1",
+    "grunt-rsync": "^3.0.0",
+    "load-grunt-tasks": "^5.1.0"
+  },
+  "dependencies": {
+    "typescript": "^3.5.3"
+  }
+}

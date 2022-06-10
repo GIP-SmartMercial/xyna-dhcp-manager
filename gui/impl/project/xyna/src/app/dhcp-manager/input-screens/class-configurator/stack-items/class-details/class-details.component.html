@@ -1,0 +1,46 @@
+<xc-panel xc-form #form="xc-form">
+
+    <header>
+        <h1>{{header}}</h1>
+        <xc-icon-button class="items-right" (click)="close()" [xc-icon-name]="XDSIconName.CLOSE" xc-icon-size="small" color="invert" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+    </header>
+
+    <section>
+        <div>
+            <xc-form-input
+                [(value)]="class.name" label="Class Name" xc-form-validator-required i18n-label>
+            </xc-form-input>
+            <xc-form-input
+                [(value)]="class.priority" label="Priority" xc-form-validator-required i18n-label>
+            </xc-form-input>
+        </div>
+    </section>
+
+    <footer>
+        <div class="items-right">
+            <xc-button (click)="save()" color="primary" [disabled]="form.invalid" i18n="cluster-details|apply">Apply</xc-button>
+        </div>
+    </footer>
+
+    <section>
+        <div class="items-row">
+            <xc-form-input
+                [(value)]="conditional" label="Condition" [readonly]="true" i18n-label>
+            </xc-form-input>
+            <xc-icon-button (click)="editCondition()" [xc-icon-name]="XDSIconName.EDIT" xc-tooltip="Edit" i18n-xc-tooltip></xc-icon-button>
+        </div>
+    </section>
+
+    <xc-panel>
+        <header>
+            <h1 i18n>Attribute</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="addAttribute()" [xc-icon-name]="XDSIconName.ADD" xc-icon-size="small" color="invert" xc-tooltip="Add" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section>
+            <xc-rich-list [xc-rich-list-items]="richList[0]"></xc-rich-list>
+        </section>
+    </xc-panel>
+
+</xc-panel>

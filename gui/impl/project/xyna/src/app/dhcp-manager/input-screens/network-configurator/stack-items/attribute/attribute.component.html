@@ -1,0 +1,43 @@
+<xc-panel xc-form #form="xc-form">
+
+    <header>
+        <h1>{{header}}</h1>
+        <xc-icon-button class="items-right" (click)="close()" [xc-icon-name]="XDSIconName.CLOSE" xc-icon-size="small" color="invert" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+    </header>
+
+    <section>
+        <xc-form-input
+            [value]="attribute.name" label="Name" [readonly]="true"  i18n-label>
+        </xc-form-input>
+
+        <!--global Attribute-->
+        <xc-form-autocomplete *ngIf="attribute.isGlobal"
+            label="Global Value"
+            placeholder="Please choose"
+            [(xc-form-autocomplete-option)]="globalValueWrapper.value"
+            [xc-form-autocomplete-options]="globalValueWrapper.values"
+            xc-form-autocomplete-asdropdown
+            i18n-label
+            i18n-placeholder>
+        </xc-form-autocomplete>
+        <span *ngIf="attribute.isGlobal">{{comment}}</span>
+
+        <!--gui Attribute-->
+        <xc-form-input *ngIf="!attribute.isGlobal"
+            [(value)]="attribute.value"
+            label="Value"
+            [xc-form-validator-pattern]="localValueValidtorPattern"
+            i18n-label>
+        </xc-form-input>
+
+        <xc-checkbox *ngIf="this.injectedData.withForce"
+            [(checked)]="attribute.force" label="Force Attribute" i18n-label>
+        </xc-checkbox>
+    </section>
+
+    <footer>
+        <div class="items-right">
+                <xc-button (click)="save()" color="primary" [disabled]="form.invalid" i18n="cluster-details|apply">Apply</xc-button>
+        </div>
+    </footer>
+</xc-panel>

@@ -1,0 +1,16 @@
+<xc-dialog-wrapper xc-form #xcForm="xc-form">
+    <ng-container header>{{header}}</ng-container>
+    <section content>
+        <div *ngIf="baseDefinition">
+            <xc-definition-proxy *ngFor="let child of baseDefinition"
+                [xc-base-definition]="child"
+                [xc-base-definition-data]="data">
+            </xc-definition-proxy>
+        </div>
+        <span *ngIf="comment">{{comment}}</span>
+    </section>
+    <ng-container footer>
+        <xc-button (click)="dismiss(false)" [disabled]="busy" i18n>Cancel</xc-button>
+        <xc-button (click)="apply()" color="primary" [busy]="busy" [disabled]="xcForm.invalid || busy" i18n="cluster-details|apply">Apply</xc-button>
+    </ng-container>
+</xc-dialog-wrapper>

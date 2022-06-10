@@ -1,0 +1,6 @@
+<div class="items-row">
+    <label>{{injectedData.value.name}}</label>
+    <label>{{injectedData.value.value}}</label>
+    <button *ngIf="injectedData.selectable" class="details-button" i18n>Show Details</button>
+    <xc-icon-button *ngIf="injectedData.deleteable" class="delete-button icon" (click)="deleteItem()" xc-icon-name="delete" [xc-tooltip]="injectedData.deleteTooltip"></xc-icon-button>
+</div>

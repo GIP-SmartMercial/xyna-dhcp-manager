@@ -1,0 +1,50 @@
+<xc-dialog-wrapper xc-form #xcForm="xc-form">
+
+    <ng-container header>
+        <ng-container>{{'Add new Threshold' | i18n}}</ng-container>
+    </ng-container>
+
+    <section content>
+
+        <xc-form-autocomplete
+            label="DHCP Relay"
+            placeholder="Please choose"
+            [(xc-form-autocomplete-option)]="dHCPRelayDataWrapper.value"
+            [xc-form-autocomplete-options]="dHCPRelayDataWrapper.values"
+            xc-form-field-suffix="clear"
+            i18n-label
+            i18n-placeholder
+            xc-form-validator-required
+            [readonly]="busy"
+        ></xc-form-autocomplete>
+
+        <xc-form-autocomplete
+            label="Pool Type"
+            placeholder="Please choose"
+            [(xc-form-autocomplete-option)]="poolTypeDataWrapper.value"
+            [xc-form-autocomplete-options]="poolTypeDataWrapper.values"
+            xc-form-field-suffix="clear"
+            i18n-label
+            i18n-placeholder
+            xc-form-validator-required
+            [readonly]="busy"
+        ></xc-form-autocomplete>
+
+        <xc-form-input
+            [(value)]="threshold.threshold"
+            label="Threshold (%)"
+            xc-form-validator-number
+            xc-form-validator-minvalue="1"
+            xc-form-validator-maxvalue="99"
+            i18n-label
+            [readonly]="busy"
+        ></xc-form-input>
+
+    </section>
+
+    <ng-container footer>
+        <xc-button (click)="dismiss(false)" i18n>Cancel</xc-button>
+        <xc-button (click)="apply()" color="primary" [busy]="busy" [disabled]="xcForm.invalid || busy" i18n="cluster-details|apply">Apply</xc-button>
+    </ng-container>
+
+</xc-dialog-wrapper>

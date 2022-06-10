@@ -1,0 +1,102 @@
+<xc-dialog-wrapper xc-form #xcForm="xc-form">
+
+    <ng-container header>
+        <ng-container i18n>{{title}}</ng-container>
+    </ng-container>
+
+    <section content>
+
+        <xc-form-input
+            [(value)]="row.parentId"
+            label="Parent-ID"
+            xc-form-validator-number
+            i18n-label
+        ></xc-form-input>
+
+        <xc-form-input
+            [(value)]="row.typeName"
+            label="Name"
+            xc-form-validator-required
+            i18n-label
+        ></xc-form-input>
+
+        <xc-form-input
+            [(value)]="row.typeEncoding"
+            label="Number of option"
+            i18n-label
+        ></xc-form-input>
+
+        <xc-form-input
+            [(value)]="row.enterpriseNr"
+            label="Enterprise-number"
+            i18n-label
+        ></xc-form-input>
+
+        <xc-form-autocomplete
+            label="Encoding-type"
+            placeholder="Please choose"
+            [(xc-form-autocomplete-option)]="encodingDataWrapper.value"
+            [xc-form-autocomplete-options]="encodingDataWrapper.values"
+            xc-form-autocomplete-asdropdown
+            i18n-label
+            i18n-placeholder
+            xc-form-validator-required
+        ></xc-form-autocomplete>
+
+        <xc-form-input
+            [(value)]="row.valueDataTypeArgumentsString"
+            label="Additional parameter"
+            i18n-label
+        ></xc-form-input>
+
+        <xc-checkbox
+            [(checked)]="readOnly"
+            label="ReadOnly"
+            i18n-label
+        ></xc-checkbox>
+
+        <xc-form-input
+            [(value)]="row.guiName"
+            label="Shortname of option"
+            i18n-label
+        ></xc-form-input>
+
+        <xc-form-input
+            [(value)]="row.guiAttribute"
+            label="Name of option in GUI"
+            i18n-label
+        ></xc-form-input>
+
+        <xc-form-input
+            [(value)]="row.guiAttributeWerteBereich"
+            label="Value of option in GUI"
+            i18n-label
+        ></xc-form-input>
+
+        <xc-form-input
+            [(value)]="row.guiFixedAttribute"
+            label="Name of global Option in GUI"
+            i18n-label
+        ></xc-form-input>
+
+        <xc-form-input
+            [(value)]="row.guiFixedAttributeValue"
+            label="Value of global Option in GUI"
+            i18n-label
+        ></xc-form-input>
+
+        <xc-form-input
+            [(value)]="row.guiParameter"
+            label="Name of condition in GUI"
+            i18n-label
+        ></xc-form-input>
+
+    </section>
+
+    <ng-container footer>
+        <xc-button (click)="dismiss(false)" [disabled]="busy" i18n>Cancel</xc-button>
+        <xc-button (click)="apply()" color="primary" [busy]="busy" [disabled]="xcForm.invalid || busy" i18n="cluster-details|apply">Apply
+        </xc-button>
+    </ng-container>
+
+</xc-dialog-wrapper>

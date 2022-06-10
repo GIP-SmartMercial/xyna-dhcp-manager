@@ -1,0 +1,18 @@
+
+<xc-title-bar xc-title-bar-company="GIP AG" xc-title-bar-year="2020" xc-title-bar-application-name="DHCP Manager">
+    <div aside>
+        <xc-menu #usermenu
+            [xc-menu-items]="usermenuItems"
+            [xc-menu-y-offset]="6"
+            xc-menu-x-position="before"
+            xc-menu-with-arrow
+            xc-menu-y-nextto-trigger
+        ></xc-menu>
+        <xc-icon-button [xc-menu-trigger]="usermenu" xc-icon-name="user" color="normal" xc-icon-style="xds"></xc-icon-button>
+    </div>
+</xc-title-bar>
+
+<div class="main-area">
+    <xc-nav-list [xc-nav-list-items]="navListItems" [xc-nav-list-orientation]="XcNavListOrientation.LEFT" class="nav"></xc-nav-list>
+    <router-outlet></router-outlet>
+</div>

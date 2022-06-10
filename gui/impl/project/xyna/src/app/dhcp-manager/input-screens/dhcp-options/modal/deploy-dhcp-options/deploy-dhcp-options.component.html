@@ -1,0 +1,26 @@
+<xc-dialog-wrapper xc-form #xcForm="xc-form">
+
+    <ng-container header>
+        <ng-container i18n>Deploy Option</ng-container>
+    </ng-container>
+
+    <section content>
+        <div>
+            Please choose Locations for Deployment.
+        </div>
+        <xc-rich-list [xc-rich-list-items]="locationsList"></xc-rich-list>
+        <xc-button (click)="checkAll()" *ngIf="locationsList.length > 1" i18n>choose all</xc-button>
+        <div>
+            Attention:
+            Existing Templates will be overwritten.
+        </div>
+    </section>
+
+    <ng-container footer>
+        This can takes a couple of minutes.
+        <xc-button (click)="dismiss(false)" [disabled]="busy" i18n>Cancel</xc-button>
+        <xc-button (click)="apply()" color="primary" [busy]="busy" [disabled]="xcForm.invalid || busy" i18n="cluster-details|apply">Apply
+        </xc-button>
+    </ng-container>
+
+</xc-dialog-wrapper>

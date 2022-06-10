@@ -1,0 +1,18 @@
+<div class="migration-footer">
+    <label class="migration-header">{{header}}</label>
+    <div class="items-row">
+        <div class="items-left">
+            <xc-form-autocomplete
+                placeholder="Please choose"
+                [(xc-form-autocomplete-option)]="migrationDataWrapper.value"
+                [xc-form-autocomplete-options]="migrationDataWrapper.values"
+                xc-form-autocomplete-asdropdown
+                i18n-label
+                i18n-placeholder>
+            </xc-form-autocomplete>
+        </div>
+        <div class="items-right">
+            <xc-icon-button (click)="execute()" [xc-icon-name]="XDSIconName.ACCORDION" xc-icon-size="small" color="invert" xc-tooltip="Execute" i18n-xc-tooltip></xc-icon-button>
+        </div>
+    </div>
+</div>

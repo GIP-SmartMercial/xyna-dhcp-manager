@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="47be7b462e445fe6ea58bb0cce753df45b6c9d42" datatype="html">
+        <source>{VAR_PLURAL, plural, =0 {More} =1 {Less} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/xc/xc-dialog/xc-about-dialog.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">more-less-toggle</note>
+      </trans-unit>
+      <trans-unit id="be5c752b58791dd799bc5d5482d4351e06f18673" datatype="html">
+        <source>Ok</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/xc/xc-dialog/xc-about-dialog.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/xc/xc-dialog/xc-info-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3d3ae7deebc5949b0c1c78b9847886a94321d9fd" datatype="html">
+        <source>No</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/xc/xc-dialog/xc-confirm-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4f20f2d5a6882190892e58b85f6ccbedfa737952" datatype="html">
+        <source>Yes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/xc/xc-dialog/xc-confirm-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fb69299354312c8954ecf324997ccafcd9f6b14b" datatype="html">
+        <source>root</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/xc/xc-path-browser/xc-path-browser.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginUsernameLabel" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/forms/credentials-login.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/forms/credentials-login.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">label for username in login mask</note>
+      </trans-unit>
+      <trans-unit id="loginPasswordLabel" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/forms/credentials-login.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/forms/credentials-login.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">label for password in login mask</note>
+      </trans-unit>
+      <trans-unit id="smartCardLoginUsernameLabel" datatype="html">
+        <source>User</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/forms/smart-card-login.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/forms/smart-card-login.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">input label for username with smart card login</note>
+      </trans-unit>
+      <trans-unit id="loginTitle" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/login/auth-login.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">title for the login mask</note>
+      </trans-unit>
+      <trans-unit id="300588316498db57912fec825de2ee6cd2749087" datatype="html">
+        <source>Authenticate with SmartCard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/login/auth-login.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="20eea344a3494d6a5471c863ac77bb0aaf264e3b" datatype="html">
+        <source>Enter your credentials</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/login/auth-login.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fe46ccaae902ce974e2441abe752399288298619" datatype="html">
+        <source>Language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/login/auth-login.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2ad9c87cd8f8262d4a0d158bb1770a388633cecf" datatype="html">
+        <source>Please chose...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/login/auth-login.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginButton" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/auth/login/auth-login.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <note priority="1" from="description">login button inside login mask</note>
+      </trans-unit>
+      <trans-unit id="6e12c5b2bf3972cca966169aac2863e885677d1b" datatype="html">
+        <source>Choose Runtime Context</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/nav/modal/runtime-context-selection/runtime-context-selection.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f85839dae859877179d6dd4e7f45e5fc7e6db700" datatype="html">
+        <source>Runtime Context</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/nav/modal/runtime-context-selection/runtime-context-selection.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0277f75ec989fda067533230b09c3dc1160de40e" datatype="html">
+        <source>choose...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/nav/modal/runtime-context-selection/runtime-context-selection.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d7b35c384aecd25a516200d6921836374613dfe7" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/nav/modal/runtime-context-selection/runtime-context-selection.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7e6c975ebea8b5f8b120905ca7acf9f8edf59d8e" datatype="html">
+        <source>OK</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/zeta/nav/modal/runtime-context-selection/runtime-context-selection.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

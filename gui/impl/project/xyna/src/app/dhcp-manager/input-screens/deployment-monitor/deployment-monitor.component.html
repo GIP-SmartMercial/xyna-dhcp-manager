@@ -1,0 +1,37 @@
+<xc-master-detail [xc-master-detail-opened]="!!currentObject" xc-master-detail-side-area-size="golden">
+    <xc-panel master>
+        <header>
+            <h1 i18n>Deploy Action</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="refresh()" xc-icon-name="reload" xc-icon-size="small" color="invert" xc-tooltip="Refresh" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section class="stretch scroll">
+            <xc-table
+                [xc-table-datasource]="tableDataSource"
+                xc-table-allowsort
+                xc-table-allowfilter
+                xc-table-allowselect
+                xc-table-lazyupdate
+                (focused-enter)="refresh()"
+        ></xc-table>
+        </section>
+        <footer>{{tableRowCountString}}</footer>
+    </xc-panel>
+
+    <xc-panel detail *ngIf="currentObject">
+        <header>
+            <h2 i18n>Details</h2>
+            <div class="items-right">
+                <xc-icon-button (click)="close()" xc-icon-name="close" xc-icon-size="small" color="invert" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section class="all-compact">
+            <xc-form-textarea label="Log" [value]="currentObject.log" xc-form-textarea-lines="30" xc-form-field-compact i18n-label readonly></xc-form-textarea>
+            <div class="items-row">
+                <xc-icon-button [xc-icon-name]="copyIconButtonName" xc-tooltip="To Clipboard" (click)="copyLog($event)" i18n-xc-tooltip></xc-icon-button>
+                <xc-icon-button [xc-icon-name]="XDSIconName.ARROWDOWN" xc-tooltip="Download" (click)="downloadLog($event)" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </section>
+    </xc-panel>
+</xc-master-detail>

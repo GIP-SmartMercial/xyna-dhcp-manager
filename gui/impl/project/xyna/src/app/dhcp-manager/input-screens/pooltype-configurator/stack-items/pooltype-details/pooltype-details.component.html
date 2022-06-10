@@ -1,0 +1,58 @@
+<xc-panel xc-form #form="xc-form">
+
+    <header>
+        <h1>{{header}}</h1>
+        <xc-icon-button class="items-right" (click)="close()" [xc-icon-name]="XDSIconName.CLOSE" xc-icon-size="small" color="invert" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+    </header>
+
+    <section>
+        <div>
+            <xc-form-input
+                [(value)]="pooltype.name" label="Name" xc-form-validator-required i18n-label>
+            </xc-form-input>
+            <xc-checkbox
+                [(checked)]="isDefault" label="Default" i18n-label>
+            </xc-checkbox>
+            <xc-form-autocomplete
+                label="Negation"
+                placeholder="Please choose"
+                [(xc-form-autocomplete-option)]="negationWrapper.value"
+                [xc-form-autocomplete-options]="negationWrapper.values"
+                xc-form-autocomplete-asdropdown
+                i18n-label
+                i18n-placeholder>
+            </xc-form-autocomplete>
+        </div>
+    </section>
+
+    <footer>
+        <div class="items-right">
+            <xc-button (click)="save()" color="primary" [disabled]="form.invalid" i18n="cluster-details|apply">Apply</xc-button>
+        </div>
+    </footer>
+
+    <xc-panel>
+        <header>
+            <h1 class="items-left" i18n>Class</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="addClass()" [xc-icon-name]="XDSIconName.ADD" xc-icon-size="small" color="invert" xc-tooltip="Add" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section>
+            <xc-rich-list [xc-rich-list-items]="richList[0]"></xc-rich-list>
+        </section>
+    </xc-panel>
+
+    <xc-panel>
+        <header>
+            <h1 i18n>Attribute</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="addAttribute()" [xc-icon-name]="XDSIconName.ADD" xc-icon-size="small" color="invert" xc-tooltip="Add" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section>
+            <xc-rich-list [xc-rich-list-items]="richList[1]"></xc-rich-list>
+        </section>
+    </xc-panel>
+
+</xc-panel>

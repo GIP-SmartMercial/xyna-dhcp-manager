@@ -1,0 +1,18 @@
+<xc-panel>
+    <header>
+        <h1>{{header}}</h1>
+        <div class="items-right">
+            <xc-icon-button
+                (click)="refresh()"
+                [xc-icon-name]="XDSIconName.RELOAD" xc-icon-size="small" color="invert"
+                [disabled]="refreshing"
+                [busy]="refreshing"
+                xc-tooltip="Refresh"
+                i18n-xc-tooltip>Refresh
+            </xc-icon-button>
+        </div>
+    </header>
+    <section>
+        <xc-rich-list [xc-rich-list-items]="richList[0]"></xc-rich-list>
+    </section>
+</xc-panel>

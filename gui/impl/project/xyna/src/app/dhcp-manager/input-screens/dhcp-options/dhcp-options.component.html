@@ -1,0 +1,48 @@
+<xc-master-detail [xc-master-detail-opened]="false" xc-master-detail-side-area-size="small"> <!--false<->!!currentObject-->
+    <xc-panel master>
+        <header>
+            <h1 i18n>DHCP-Options</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="refresh()" xc-icon-name="reload" xc-icon-size="small" color="invert" xc-tooltip="Refresh" i18n-xc-tooltip></xc-icon-button>
+                <xc-icon-button (click)="addOption()" xc-icon-name="add" xc-icon-size="small" color="invert" xc-tooltip="Add" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section class="stretch scroll">
+            <xc-table
+                [xc-table-datasource]="tableDataSource"
+                xc-table-allowfilter
+                xc-table-allowsort
+                xc-table-allowselect
+                xc-table-lazyupdate
+                (focused-enter)="refresh()"
+        ></xc-table>
+        </section>
+        <footer>
+            {{tableRowCountString}}
+            <div class="items-right">
+                <xc-icon-button (click)="editOption()" [disabled]="!currentObject || currentObject.readOnly === '1'" xc-icon-name="edit"xc-icon-size="small" color="invert" xc-tooltip="Edit" i18n-xc-tooltip></xc-icon-button>
+                <xc-icon-button (click)="deleteOption()" [disabled]="!currentObject || currentObject.readOnly === '1'" xc-icon-name="delete"xc-icon-size="small" color="invert" xc-tooltip="Delete" i18n-xc-tooltip></xc-icon-button>
+                <xc-icon-button (click)="deployOption()" [disabled]="!currentObject || currentObject.readOnly === '1'" xc-icon-name="accordion"xc-icon-size="small" color="invert" xc-tooltip="Deploy" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </footer>
+    </xc-panel>
+
+    <!--<xc-panel detail *ngIf="currentObject">
+        <header>
+            <h2 i18n>Details</h2>
+            <div class="items-right">
+                <xc-icon-button (click)="close()" xc-icon-name="close" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section class="all-compact">
+            <xc-form-input xc-form-field-compact [value]="currentObject.host" label="Host" i18n-label readonly></xc-form-input>
+            <xc-form-input xc-form-field-compact [value]="currentObject.ip" label="Ip" i18n-label readonly></xc-form-input>
+            <xc-form-input xc-form-field-compact [value]="currentObject.ipNum" label="IpNum" i18n-label readonly></xc-form-input>
+            <xc-form-input xc-form-field-compact [value]="currentObject.startTime" label="StartTime" i18n-label readonly></xc-form-input>
+            <xc-form-input xc-form-field-compact [value]="currentObject.endTime" label="EndTime" i18n-label readonly></xc-form-input>
+            <xc-form-input xc-form-field-compact [value]="currentObject.type" label="Type" i18n-label readonly></xc-form-input>
+            <xc-form-input xc-form-field-compact [value]="currentObject.remoteId" label="RemoteId" i18n-label readonly></xc-form-input>
+            <xc-form-input xc-form-field-compact [value]="currentObject.dppInstance" label="DppInstance" i18n-label readonly></xc-form-input>
+        </section>
+    </xc-panel> -->
+</xc-master-detail>

@@ -1,0 +1,29 @@
+<xc-dialog-wrapper>
+    <ng-container header>
+        {{header}}
+        <xc-icon-button (click)="refresh()" xc-icon-name="reload" xc-tooltip="Refresh" i18n-xc-tooltip></xc-icon-button>
+    </ng-container>
+    <section content>
+        <xc-form-textarea
+            [value]="infoText" [xc-form-textarea-lines]= "10" [readonly] = "true" >
+        </xc-form-textarea>
+        <xc-form-textarea
+            id="editArea"
+            [(value)]="conditionString" label="Condition" i18n-label>
+        </xc-form-textarea>
+        <div class="items-row">
+            <xc-button (click)="addCondition()" i18n>Add Condition</xc-button>
+            <xc-button (click)="addAND()" i18n>AND</xc-button>
+            <xc-button (click)="addOR()" i18n>OR</xc-button>
+            <xc-button (click)="addNOT()" i18n>NOT</xc-button>
+            <xc-button (click)="addOpenBracket()" i18n>(</xc-button>
+            <xc-button (click)="addClosedBracket()" i18n>)</xc-button>
+        </div>
+    </section>
+    <ng-container footer>
+        {{validString}}
+        <xc-button (click)="validate()" i18n>Validate</xc-button>
+        <xc-button (click)="dismiss('')" i18n>Cancel</xc-button>
+        <xc-button (click)="apply()" color="primary" i18n="cluster-details|apply">Apply</xc-button>
+    </ng-container>
+</xc-dialog-wrapper>

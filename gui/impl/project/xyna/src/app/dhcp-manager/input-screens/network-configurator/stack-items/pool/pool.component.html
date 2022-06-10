@@ -1,0 +1,71 @@
+<xc-panel xc-form #form="xc-form">
+
+    <header>
+        <h1>{{header}}</h1>
+        <xc-icon-button class="items-right" (click)="close()" [xc-icon-name]="XDSIconName.CLOSE" xc-icon-size="small" color="invert" xc-tooltip="Close" i18n-xc-tooltip></xc-icon-button>
+    </header>
+
+    <section *ngIf="pool">
+        <xc-form-input
+            [(value)]="pool.rangeStart" label="Start"
+            xc-form-validator-ip
+            [xc-form-validator-custom]="validatorMap.get('poolStart').validator"
+            [xc-form-validator-custom-arguments]="validatorMap.get('poolStart').args"
+            i18n-label>
+        </xc-form-input>
+        <xc-form-input
+            [(value)]="pool.rangeStop" label="End"
+            xc-form-validator-ip
+            [xc-form-validator-custom]="validatorMap.get('poolEnd').validator"
+            [xc-form-validator-custom-arguments]="validatorMap.get('poolEnd').args"
+            i18n-label>
+        </xc-form-input>
+        <xc-form-autocomplete
+            label="Pool-Type"
+            placeholder="Please choose"
+            [(xc-form-autocomplete-option)]="pooltypeWrapper.value"
+            [xc-form-autocomplete-options]="pooltypeWrapper.values"
+            xc-form-autocomplete-asdropdown
+            i18n-label
+            i18n-placeholder>
+        </xc-form-autocomplete>
+        <xc-checkbox
+            [(checked)]="targetState" label="Target State" i18n-label>
+        </xc-checkbox>
+        <xc-checkbox
+            [(checked)]="statistic" label="Statistic" i18n-label>
+        </xc-checkbox>
+        <xc-form-textarea
+            [(value)]="pool.exclusions" label="Exclusions"
+            [xc-form-validator-custom]="validatorMap.get('exclusions').validator"
+            [xc-form-validator-custom-arguments]="validatorMap.get('exclusions').args"
+            i18n-label>
+        </xc-form-textarea>
+        <div class="items-row" i18n>
+            Deployed:
+            <xc-icon
+                label="Deployed" [xc-icon-name]="deployedIcon">
+            </xc-icon>
+        </div>
+    </section>
+
+    <footer>
+        <migration-handler  class="items-left" [selected-items]="migrationID" migration-type="pool"></migration-handler>
+        <div class="items-right">
+            <xc-button (click)="save()" color="primary" [disabled]="form.invalid" i18n="cluster-details|apply">Apply</xc-button>
+        </div>
+    </footer>
+
+    <xc-panel>
+        <header>
+            <h1 i18n>Static Host</h1>
+            <div class="items-right">
+                <xc-icon-button (click)="addHost()" [xc-icon-name]="XDSIconName.ADD" xc-icon-size="small" color="invert" xc-tooltip="Add" i18n-xc-tooltip></xc-icon-button>
+            </div>
+        </header>
+        <section>
+            <xc-rich-list [xc-rich-list-items]="richList[0]"></xc-rich-list>
+        </section>
+    </xc-panel>
+
+</xc-panel>
